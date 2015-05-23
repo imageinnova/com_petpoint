@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.4.0" method="upgrade">
+	<name>COM_PETPOINT</name>
+	<!-- The following elements are optional and free of formatting constraints -->
+	<creationDate>May 2015</creationDate>
+	<author>Max Schneider</author>
+	<authorEmail>max@imageinnova.com</authorEmail>
+	<authorUrl>http://www.imageinnova.com</authorUrl>
+	<copyright>Copyright 2015</copyright>
+	<!-- The version string is recorded in the components table -->
+	<version>0.1</version>
+	<!-- The description is optional and defaults to the name -->
+	<description>COM_PETPOINT_DESCRIPTION</description>
+	<files folder="site">
+		<folder>language</folder>
+		<folder>views</folder>
+		<filename>controller.php</filename>
+		<filename>petpoint.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<administration>
+		<menu link="index.php?option=com_petpoint">COM_PETPOINT</menu>
+		<files folder="admin">
+			<folder>language</folder>
+			<folder>views</folder>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<filename>petpoint.php</filename>
+		</files>
+	</administration>
+</extension>
