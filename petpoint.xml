@@ -8,9 +8,24 @@
 	<authorUrl>http://www.imageinnova.com</authorUrl>
 	<copyright>Copyright 2015</copyright>
 	<!-- The version string is recorded in the components table -->
-	<version>0.1</version>
+	<version>0.2</version>
 	<!-- The description is optional and defaults to the name -->
 	<description>COM_PETPOINT_DESCRIPTION</description>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
 	<files folder="site">
 		<folder>language</folder>
 		<folder>views</folder>
@@ -22,6 +37,8 @@
 		<menu link="index.php?option=com_petpoint">COM_PETPOINT</menu>
 		<files folder="admin">
 			<folder>language</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
 			<folder>views</folder>
 			<filename>config.xml</filename>
 			<filename>controller.php</filename>
