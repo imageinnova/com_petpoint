@@ -25,8 +25,9 @@ class PetPointViewSearch extends JViewLegacy {
 	 */
 	function display($tpl = null) {
 		// Assign data to the view
+		$this->species = $this->get('Species');
 
-				// Check for errors.
+		// Check for errors.
 		if (count($errors = $this->get('Errors'))):
 			JLog::add(implode('<br />', $errors), JLog::WARNING, 'jerror');
  

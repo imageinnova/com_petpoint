@@ -19,6 +19,7 @@ else:
 	// Build up arrays of control options (TO DO: make these into db tables)
 	
 	// species
+	/*
 	$speciesOpts = array();
 	$speciesOpts[] = JHtml::_('select.option', 'All', JText::_('JALL'));
 	$speciesOpts[] = JHtml::_('select.option', 'Dog', JText::_('COM_PETPOINT_SPECIES_OPT_DOG'));
@@ -30,7 +31,9 @@ else:
 	$speciesOpts[] = JHtml::_('select.option', 'Reptile', JText::_('COM_PETPOINT_SPECIES_OPT_REPTILE'));
 	$speciesOpts[] = JHtml::_('select.option', 'Barnyard', JText::_('COM_PETPOINT_SPECIES_OPT_BARNYARD'));
 	$speciesOpts[] = JHtml::_('select.option', 'Other', JText::_('COM_PETPOINT_SPECIES_OPT_OTHER'));
-	
+	*/
+	$speciesOpts = $this->species;
+
 	// sex
 	$sexOpts = array();
 	$sexOpts[] = JHtml::_('select.option', 'A', JText::_('JALL'));
