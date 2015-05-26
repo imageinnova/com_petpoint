@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+		<field name="id" type="hidden" />
+		<field name="species" type="text" label="COM_PETPOINT_SPECIES_LABEL" 
+			description="COM_PETPOINT_SPECIES_DESC" size="20" class="inputbox" />
+		<field name="description" type="text" label="COM_PETPOINT_SPECIES_DESCRIPTION_LABEL"
+			description="COM_PETPOINT_SPECIES_DESCRIPTION_DESC" size="40" class="inputbox"
+			default="" />
+	</fieldset>
+</form>

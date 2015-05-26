@@ -6,7 +6,6 @@ class PetPointModelSearch extends JModelItem {
 	//protected $species;
 	
 	public function getSpecies($arg = null) {
-		error_log("Entered getSpecies");
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(true);
 		$query->select('code,description');

@@ -25,7 +25,9 @@ class PetPointViewSearch extends JViewLegacy {
 	 */
 	function display($tpl = null) {
 		// Assign data to the view
-		$this->species = $this->get('Species');
+//		$model = $this->setModel('search', true);
+//		$model = $this->getModel();
+//		$this->species = $model->get('Species');
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))):

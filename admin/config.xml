@@ -57,6 +57,9 @@
 				<option value="No">JNO</option>
 			</field>
 		</fieldset>
+		<fieldset name="permissions" description="JCONFIG_PERMISSIONS_DESC" label="JCONFIG_PERMISSIONS_LABEL">
+			<field name="rules" type="rules" component="COM_PETPOINT" filter="rules" validate="rules" label="JCONFIG_PERMISSIONS_LABEL" section="component" />
+		</fieldset>
 		<fieldset name="advanced" label="COM_PETPOINT_FIELDSET_ADVANCED_LABEL">
 			<field name="ppwidth" type="text" label="COM_PETPOINT_WIDTH_LABEL"
 				required="true" default="100%"></field>

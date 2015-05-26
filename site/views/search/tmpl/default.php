@@ -19,7 +19,7 @@ else:
 	// Build up arrays of control options (TO DO: make these into db tables)
 	
 	// species
-	/*
+	
 	$speciesOpts = array();
 	$speciesOpts[] = JHtml::_('select.option', 'All', JText::_('JALL'));
 	$speciesOpts[] = JHtml::_('select.option', 'Dog', JText::_('COM_PETPOINT_SPECIES_OPT_DOG'));
@@ -31,8 +31,8 @@ else:
 	$speciesOpts[] = JHtml::_('select.option', 'Reptile', JText::_('COM_PETPOINT_SPECIES_OPT_REPTILE'));
 	$speciesOpts[] = JHtml::_('select.option', 'Barnyard', JText::_('COM_PETPOINT_SPECIES_OPT_BARNYARD'));
 	$speciesOpts[] = JHtml::_('select.option', 'Other', JText::_('COM_PETPOINT_SPECIES_OPT_OTHER'));
-	*/
-	$speciesOpts = $this->species;
+	
+//	$speciesOpts = $this->species;
 
 	// sex
 	$sexOpts = array();
@@ -66,53 +66,68 @@ else:
 		$queryParms[$key] = $params->get($key);
 	endforeach;
 	?>
-	<form action="#" method="get" id="form-petpoint" class="form-inline">
-	<div class="userdata">
-		<div class="controls">
-			<?php if ($params->get('showspecies')): ?>
+<form action="#" method="get" id="form-petpoint" class="form-inline">
+	<div class="controls">
+		<?php if ($params->get('showspecies')): ?>
+			<div class="form-group">
 				<label for="form-petpoint-species"><?php echo JText::_('COM_PETPOINT_SPECIES_LABEL'); ?></label>
 				<?php echo JHtml::_('select.genericlist', $speciesOpts, 'form-petpoint-species', 'class="form-control"', 'value', 'text', $params->get('species')); ?>
-			<?php endif;?>
-			<?php if ($params->get('showsex')): ?>
+			</div> <!-- form-group -->
+		<?php endif;?>
+		<?php if ($params->get('showsex')): ?>
+			<div class="form-group">
 				<label for="form-petpoint-sex"><?php echo JText::_('COM_PETPOINT_SEX_LABEL'); ?></label>
 				<?php echo JHtml::_('select.genericlist', $sexOpts, 'form-petpoint-sex', 'class="form-control"', 'value', 'text', $params->get('sex')); ?>
-			<?php endif; ?>
-			<?php if ($params->get('showagegroup')): ?>
+			</div> <!-- form-group -->
+		<?php endif; ?>
+		<?php if ($params->get('showagegroup')): ?>
+			<div class="form-group">
 				<label for="form-petpoint-agegroup"><?php echo JText::_('COM_PETPOINT_AGEGROUP_LABEL'); ?></label>
 				<?php echo JHtml::_('select.genericlist', $agegroupOpts, 'form-petpoint-agegroup', 'class="form-control"', 'value', 'text', $params->get('agegroup')); ?>
-			<?php endif; ?>
-			<?php if ($params->get('showlocation')): ?>
+			</div> <!-- form-group -->
+		<?php endif; ?>
+		<?php if ($params->get('showlocation')): ?>
 				<div class="form-group">
     				<label for="form-petpoint-location"><?php echo JText::_('COM_PETPOINT_LOCATION_LABEL')?></label>
     				<input type="text" class="form-control" name="form-petpoint-location" value="<?php echo $params->get('location'); ?>" />
-  				</div>
-			<?php endif; ?>
-			<?php if ($params->get('showsite')): ?>
+  				</div> <!-- form-group -->
+		<?php endif; ?>
+		<?php if ($params->get('showsite')): ?>
 				<div class="form-group">
     				<label for="form-petpoint-site"><?php echo JText::_('COM_PETPOINT_SITE_LABEL')?></label>
     				<input type="text" class="form-control" name="form-petpoint-site" value="<?php echo $params->get('site'); ?>" />
-  				</div>
-			<?php endif; ?>
-			<?php if ($params->get('showonhold')): ?>
+  				</div> <!-- form-group -->
+		<?php endif; ?>
+		<?php if ($params->get('showonhold')): ?>
+			<div class="form-group">
 				<label for="form-petpoint-onhold"><?php echo JText::_('COM_PETPOINT_ONHOLD_LABEL'); ?></label>
 				<?php echo JHtml::_('select.genericlist', $onholdOpts, 'form-petpoint-onhold', 'class="form-control"', 'value', 'text', $params->get('onhold')); ?>
-			<?php endif; ?>
-			<?php if ($params->get('showorderby')): ?>
+			</div> <!-- form-group -->
+		<?php endif; ?>
+		<?php if ($params->get('showorderby')): ?>
+			<div class="form-group">
 				<label for="form-petpoint-orderby"><?php echo JText::_('COM_PETPOINT_ORDERBY_LABEL'); ?></label>
 				<?php echo JHtml::_('select.genericlist', $orderbyOpts, 'form-petpoint-orderby', 'class="form-control"', 'value', 'text', $params->get('orderby')); ?>
-			<?php endif; ?>
-			</div>
-		<div id="form-petpoint-submit" class="control-group">
-			<div class="controls">
-				<button type="submit" tabindex="0" name="submit" id="submit" class="btn btn-primary"><?php echo JText::_('COM_PETPOINT_SEARCH_LABEL') ?></button>
-			</div>
-		</div>
-	</div>
+			</div> <!-- form-group -->
+		<?php endif; ?>
+	</div> <!-- controls -->
+	<div id="form-petpoint-submit" class="control-group">
+		<div class="controls">
+			<button type="submit" tabindex="0" name="submit" id="submit" class="btn btn-primary"><?php echo JText::_('COM_PETPOINT_SEARCH_LABEL') ?></button>
+		</div> <!-- controls -->
+	</div> <!-- control-group -->
 </form>
 <iframe id="petpoint-search" width="<?php echo $params->get('ppwidth'); ?>" height="<?php echo $params->get('ppheight'); ?>" src="<?php echo $params->get('url') . '?' . http_build_query($queryParms); ?>"></iframe>
 <?php endif; ?>
 <script>
 jQuery(function($) {
+	$( document ).ready(function() {      
+	    var isMobile = window.matchMedia("only screen and (max-width: 760px)");
+
+	    if (isMobile.matches) {
+	        //Conditional script here for mobile devices
+	    }
+	 });
 	$('#submit').click(function(ev){ 
 		// suppress default action
 		ev.preventDefault();

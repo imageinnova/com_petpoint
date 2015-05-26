@@ -24,12 +24,23 @@ class PetPointViewPetPoint extends JViewLegacy {
 	 * @return  void
 	 */
 	function display($tpl = null) {
-		// Assign data to the view
-//		$this->msg = $this->get('Msg'); 
+		// get application
+		$app = JFactory::getApplication();
+		$context = 'petpoint.list.admin.petpoint';
+		
+		// get the data
+		$this->state = $this->get('State');
+		$this->items = $this->get('Items');
+		$this->pagination = $this->get('Pagination');
+		// pick up filters; default description ascending
+		$this->filter_order = $app->getUserStateFromRequest ($context . 'filter_order', 'filter_order', 'description', 'cmd');
+		$this->filter_order_Dir = $app->getUserStateFromRequest ($context . 'filter_order_Dir', 'filter_order_Dir', 'asc', 'cmd');
+		$this->filterForm = $this->get ('FilterForm');
+		$this->activeFilters = $this->get ('ActiveFilters');
+		
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))):
-			JLog::add(implode('<br />', $errors), JLog::WARNING, 'jerror');
- 
+			JError::raiseError('500', implode('\n', $errors));
 			return false;
 		endif;
 
@@ -41,7 +52,21 @@ class PetPointViewPetPoint extends JViewLegacy {
 	}
 	
 	protected function addToolbar() {
-		JToolbarHelper::title(JText::_('COM_PETPOINT_TITLE'));
-		JToolbarHelper::preferences('com_petpoint');
+		// Toolbar title
+		$title = JText::_('COM_PETPOINT_TITLE');
+		if ($this->pagination->total):
+			$title .= "<span style='font-size: 0.5em; vertical-align: middle;'>(" . $this->pagination->total . ")</span>";
+		endif;
+		JToolbarHelper::title($title, 'petpoint');
+		JToolBarHelper::addNew ('species.add');
+		JToolBarHelper::editList ('species.edit');
+		JToolBarHelper::deleteList('', 'petpoint.delete');
+		JToolBarHelper::preferences('com_petpoint');
+	}
+	
+	// set up document properties
+	protected function setDocument() {
+		$doc = JFactory::getDocument();
+		$doc->setTitle(JText::_('COM_PETPOINT_ADMINISTRATION'));
 	}
 }
