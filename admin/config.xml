@@ -1,112 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
-	<params>
-		<fieldset name="fields" label="COM_PETPOINT_FIELDSET_FIELDS_LABEL">
-			<field name="species" type="list" label="COM_PETPOINT_SPECIES_LABEL"
-				default="All">
-				<option value="All">JALL</option>
-				<option value="Dog">COM_PETPOINT_SPECIES_OPT_DOG</option>
-				<option value="Cat">COM_PETPOINT_SPECIES_OPT_CAT</option>
-				<option value="Rabbit">COM_PETPOINT_SPECIES_OPT_RABBIT</option>
-				<option value="Horse">COM_PETPOINT_SPECIES_OPT_HORSE</option>
-				<option value="Small&amp;Furry">COM_PETPOINT_SPECIES_OPT_SMALL_FURRY
-				</option>
-				<option value="Pig">COM_PETPOINT_SPECIES_OPT_PIG</option>
-				<option value="Reptile">COM_PETPOINT_SPECIES_OPT_REPTILE</option>
-				<option value="Barnyard">COM_PETPOINT_SPECIES_OPT_BARNYARD</option>
-				<option value="Other">COM_PETPOINT_SPECIES_OPT_OTHER</option>
-			</field>
-			<field name="sex" type="radio" label="COM_PETPOINT_SEX_LABEL"
-				default="A" class="btn-group btn-group-yesno">
-				<option value="A">JALL</option>
-				<option value="M">COM_PETPOINT_SEX_OPT_MALE</option>
-				<option value="F">COM_PETPOINT_SEX_OPT_FEMALE</option>
-			</field>
-			<field name="agegroup" type="list" label="COM_PETPOINT_AGEGROUP_LABEL"
-				default="All">
-				<option value="All">JALL</option>
-				<option value="UnderYear">COM_PETPOINT_AGEGROUP_OPT_UNDER_1_YEAR
-				</option>
-				<option value="OverYear">COM_PETPOINT_AGEGROUP_OPT_OVER_1_YEAR
-				</option>
-			</field>
-			<field name="location" type="text" label="COM_PETPOINT_LOCATION_LABEL"></field>
-			<field name="site" type="text" label="COM_PETPOINT_SITE_LABEL"></field>
-			<field name="onhold" type="radio" label="COM_PETPOINT_ONHOLD_LABEL"
-				default="A" class="btn-group btn-group-yesno">
-				<option value="A">JALL</option>
-				<option value="Y">COM_PETPOINT_ONHOLD_OPT_ON_HOLD</option>
-				<option value="N">COM_PETPOINT_ONHOLD_OPT_NOT_ON_HOLD
-				</option>
-			</field>
-			<field name="orderby" type="list" label="COM_PETPOINT_ORDERBY_LABEL"
-				default="ID">
-				<option value="ID">COM_PETPOINT_ORDERBY_OPT_ID</option>
-				<option value="Name">COM_PETPOINT_ORDERBY_OPT_NAME</option>
-				<option value="Breed">COM_PETPOINT_ORDERBY_OPT_BREED</option>
-				<option value="Sex">COM_PETPOINT_ORDERBY_OPT_SEX</option>
-				<option value="Random">COM_PETPOINT_ORDERBY_OPT_RANDOM</option>
-			</field>
-			<field name="colnum" type="text" label="COM_PETPOINT_COLNUM_LABEL"
-				filter="integer"></field>
-			<field name="css" type="text" label="COM_PETPOINT_CSS_LABEL"></field>
-			<field name="detailsinpopup" type="radio"
-				label="COM_PETPOINT_DETAILSINPOPUP_LABEL" default="Yes"
-				class="btn-group btn-group-yesno">
-				<option value="Yes">JYES</option>
-				<option value="No">JNO</option>
-			</field>
-		</fieldset>
-		<fieldset name="permissions" description="JCONFIG_PERMISSIONS_DESC" label="JCONFIG_PERMISSIONS_LABEL">
-			<field name="rules" type="rules" component="COM_PETPOINT" filter="rules" validate="rules" label="JCONFIG_PERMISSIONS_LABEL" section="component" />
-		</fieldset>
-		<fieldset name="advanced" label="COM_PETPOINT_FIELDSET_ADVANCED_LABEL">
-			<field name="ppwidth" type="text" label="COM_PETPOINT_WIDTH_LABEL"
-				required="true" default="100%"></field>
-			<field name="ppheight" type="text" label="COM_PETPOINT_HEIGHT_LABEL"
-				required="true" default="500"></field>
-			<field name="url" type="text" label="COM_PETPOINT_URL_LABEL"
-				readonly="true"
-				default="http://www.petango.com/webservices/adoptablesearch/wsAdoptableAnimals.aspx"></field>
-			<field name="authkey" type="text" label="COM_PETPOINT_AUTHKEY_LABEL"></field>
-			<field name="showspecies" type="radio"
-				label="COM_PETPOINT_SHOW_SPECIES_LABEL" default="1"
-				class="btn-group btn-group-yesno">
-				<option value="1">JYES</option>
-				<option value="0">JNO</option>
-			</field>
-			<field name="showsex" type="radio" label="COM_PETPOINT_SHOW_SEX_LABEL"
-				default="1" class="btn-group btn-group-yesno">
-				<option value="1">JYES</option>
-				<option value="0">JNO</option>
-			</field>
-			<field name="showagegroup" type="radio" label="COM_PETPOINT_SHOW_AGEGROUP_LABEL"
-				default="1" class="btn-group btn-group-yesno">
-				<option value="1">JYES</option>
-				<option value="0">JNO</option>
-			</field>
-			<field name="showlocation" type="radio"
-				label="COM_PETPOINT_SHOW_LOCATION_LABEL" default="0"
-				class="btn-group btn-group-yesno">
-				<option value="1">JYES</option>
-				<option value="0">JNO</option>
-			</field>
-			<field name="showsite" type="radio" label="COM_PETPOINT_SHOW_SITE_LABEL"
-				default="0" class="btn-group btn-group-yesno">
-				<option value="1">JYES</option>
-				<option value="0">JNO</option>
-			</field>
-			<field name="showonhold" type="radio" label="COM_PETPOINT_SHOW_ONHOLD_LABEL"
-				default="1" class="btn-group btn-group-yesno">
-				<option value="1">JYES</option>
-				<option value="0">JNO</option>
-			</field>
-			<field name="showorderby" type="radio"
-				label="COM_PETPOINT_SHOW_ORDERBY_LABEL" default="1"
-				class="btn-group btn-group-yesno">
-				<option value="1">JYES</option>
-				<option value="0">JNO</option>
-			</field>
-		</fieldset>
-	</params>
+	<fieldset name="fields" label="COM_PETPOINT_FIELDSET_FIELDS_LABEL" addfieldpath="/administrator/components/com_petpoint/models/fields">
+		<field name="species" type="species" label="COM_PETPOINT_SPECIES_LABEL">
+		</field>
+		<field name="sex" type="radio" label="COM_PETPOINT_SEX_LABEL"
+			default="A" class="btn-group btn-group-yesno">
+			<option value="A">JALL</option>
+			<option value="M">COM_PETPOINT_SEX_OPT_MALE</option>
+			<option value="F">COM_PETPOINT_SEX_OPT_FEMALE</option>
+		</field>
+		<field name="agegroup" type="list" label="COM_PETPOINT_AGEGROUP_LABEL"
+			default="All">
+			<option value="All">JALL</option>
+			<option value="UnderYear">COM_PETPOINT_AGEGROUP_OPT_UNDER_1_YEAR
+			</option>
+			<option value="OverYear">COM_PETPOINT_AGEGROUP_OPT_OVER_1_YEAR
+			</option>
+		</field>
+		<field name="location" type="text" label="COM_PETPOINT_LOCATION_LABEL"></field>
+		<field name="site" type="text" label="COM_PETPOINT_SITE_LABEL"></field>
+		<field name="onhold" type="radio" label="COM_PETPOINT_ONHOLD_LABEL"
+			default="A" class="btn-group btn-group-yesno">
+			<option value="A">JALL</option>
+			<option value="Y">COM_PETPOINT_ONHOLD_OPT_ON_HOLD</option>
+			<option value="N">COM_PETPOINT_ONHOLD_OPT_NOT_ON_HOLD
+			</option>
+		</field>
+		<field name="orderby" type="list" label="COM_PETPOINT_ORDERBY_LABEL"
+			default="ID">
+			<option value="ID">COM_PETPOINT_ORDERBY_OPT_ID</option>
+			<option value="Name">COM_PETPOINT_ORDERBY_OPT_NAME</option>
+			<option value="Breed">COM_PETPOINT_ORDERBY_OPT_BREED</option>
+			<option value="Sex">COM_PETPOINT_ORDERBY_OPT_SEX</option>
+			<option value="Random">COM_PETPOINT_ORDERBY_OPT_RANDOM</option>
+		</field>
+		<field name="colnum" type="text" label="COM_PETPOINT_COLNUM_LABEL"
+			filter="integer"></field>
+		<field name="css" type="text" label="COM_PETPOINT_CSS_LABEL"></field>
+		<field name="detailsinpopup" type="radio"
+			label="COM_PETPOINT_DETAILSINPOPUP_LABEL" default="Yes"
+			class="btn-group btn-group-yesno">
+			<option value="Yes">JYES</option>
+			<option value="No">JNO</option>
+		</field>
+	</fieldset>
+	<fieldset name="permissions" description="JCONFIG_PERMISSIONS_DESC"
+		label="JCONFIG_PERMISSIONS_LABEL">
+		<field name="rules" type="rules" component="COM_PETPOINT"
+			filter="rules" validate="rules" label="JCONFIG_PERMISSIONS_LABEL"
+			section="component" />
+	</fieldset>
+	<fieldset name="advanced" label="COM_PETPOINT_FIELDSET_ADVANCED_LABEL">
+		<field name="ppwidth" type="text" label="COM_PETPOINT_WIDTH_LABEL"
+			required="true" default="100%"></field>
+		<field name="ppheight" type="text" label="COM_PETPOINT_HEIGHT_LABEL"
+			required="true" default="500"></field>
+		<field name="url" type="text" label="COM_PETPOINT_URL_LABEL"
+			readonly="true"
+			default="http://www.petango.com/webservices/adoptablesearch/wsAdoptableAnimals.aspx"></field>
+		<field name="authkey" type="text" label="COM_PETPOINT_AUTHKEY_LABEL"></field>
+		<field name="showspecies" type="radio" label="COM_PETPOINT_SHOW_SPECIES_LABEL"
+			default="1" class="btn-group btn-group-yesno">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="showsex" type="radio" label="COM_PETPOINT_SHOW_SEX_LABEL"
+			default="1" class="btn-group btn-group-yesno">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="showagegroup" type="radio"
+			label="COM_PETPOINT_SHOW_AGEGROUP_LABEL" default="1"
+			class="btn-group btn-group-yesno">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="showlocation" type="radio"
+			label="COM_PETPOINT_SHOW_LOCATION_LABEL" default="0"
+			class="btn-group btn-group-yesno">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="showsite" type="radio" label="COM_PETPOINT_SHOW_SITE_LABEL"
+			default="0" class="btn-group btn-group-yesno">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="showonhold" type="radio" label="COM_PETPOINT_SHOW_ONHOLD_LABEL"
+			default="1" class="btn-group btn-group-yesno">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="showorderby" type="radio" label="COM_PETPOINT_SHOW_ORDERBY_LABEL"
+			default="1" class="btn-group btn-group-yesno">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+	</fieldset>
 </config>
