@@ -21,6 +21,7 @@ else:
 	// species
 	
 	$speciesOpts = array();
+	/*
 	$speciesOpts[] = JHtml::_('select.option', 'All', JText::_('JALL'));
 	$speciesOpts[] = JHtml::_('select.option', 'Dog', JText::_('COM_PETPOINT_SPECIES_OPT_DOG'));
 	$speciesOpts[] = JHtml::_('select.option', 'Cat', JText::_('COM_PETPOINT_SPECIES_OPT_CAT'));
@@ -31,6 +32,8 @@ else:
 	$speciesOpts[] = JHtml::_('select.option', 'Reptile', JText::_('COM_PETPOINT_SPECIES_OPT_REPTILE'));
 	$speciesOpts[] = JHtml::_('select.option', 'Barnyard', JText::_('COM_PETPOINT_SPECIES_OPT_BARNYARD'));
 	$speciesOpts[] = JHtml::_('select.option', 'Other', JText::_('COM_PETPOINT_SPECIES_OPT_OTHER'));
+	*/
+	$speciesOpts = $this->speciesOptions;
 	
 //	$speciesOpts = $this->species;
 

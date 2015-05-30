@@ -39,18 +39,16 @@ class JFormFieldSpecies extends JFormFieldList
 		$query->where('published = 1');
 		$query->from('#__petpoint_species');
 		$db->setQuery((string) $query);
-		$messages = $db->loadObjectList();
+		$results = $db->loadObjectList();
 		$options  = array();
  
-		if ($messages)
+		if ($results)
 		{
-			foreach ($messages as $message)
+			foreach ($results as $species)
 			{
-				$options[] = JHtml::_('select.option', $message->species, $message->description);
+				$options[] = JHtml::_('select.option', $species->species, $species->description);
 			}
 		}
- 
-		$options = array_merge(parent::getOptions(), $options);
  
 		return $options;
 	}
