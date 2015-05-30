@@ -8,7 +8,7 @@
 	<authorUrl>http://www.imageinnova.com</authorUrl>
 	<copyright>Copyright 2015</copyright>
 	<!-- The version string is recorded in the components table -->
-	<version>0.2</version>
+	<version>0.3</version>
 	<!-- The description is optional and defaults to the name -->
 	<description>COM_PETPOINT_DESCRIPTION</description>
 	<install>
@@ -28,6 +28,7 @@
 	</update>
 	<files folder="site">
 		<folder>language</folder>
+		<folder>models</folder>
 		<folder>views</folder>
 		<filename>controller.php</filename>
 		<filename>petpoint.php</filename>
