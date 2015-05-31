@@ -16,77 +16,28 @@ $params = $app->getParams();
 if (!$params): 
 	echo 'This component must be configured before attempting to display it on the site.';
 else:
-	// Build up arrays of control options (TO DO: make these into db tables)
-	
-	// species
-	
-	$speciesOpts = array();
-	/*
-	$speciesOpts[] = JHtml::_('select.option', 'All', JText::_('JALL'));
-	$speciesOpts[] = JHtml::_('select.option', 'Dog', JText::_('COM_PETPOINT_SPECIES_OPT_DOG'));
-	$speciesOpts[] = JHtml::_('select.option', 'Cat', JText::_('COM_PETPOINT_SPECIES_OPT_CAT'));
-	$speciesOpts[] = JHtml::_('select.option', 'Rabbit', JText::_('COM_PETPOINT_SPECIES_OPT_RABBIT'));
-	$speciesOpts[] = JHtml::_('select.option', 'Horse', JText::_('COM_PETPOINT_SPECIES_OPT_HORSE'));
-	$speciesOpts[] = JHtml::_('select.option', JText::_('Small & Furry'), JText::_('COM_PETPOINT_SPECIES_OPT_SMALL_FURRY'));
-	$speciesOpts[] = JHtml::_('select.option', 'Pig', JText::_('COM_PETPOINT_SPECIES_OPT_PIG'));
-	$speciesOpts[] = JHtml::_('select.option', 'Reptile', JText::_('COM_PETPOINT_SPECIES_OPT_REPTILE'));
-	$speciesOpts[] = JHtml::_('select.option', 'Barnyard', JText::_('COM_PETPOINT_SPECIES_OPT_BARNYARD'));
-	$speciesOpts[] = JHtml::_('select.option', 'Other', JText::_('COM_PETPOINT_SPECIES_OPT_OTHER'));
-	*/
-	$speciesOpts = $this->speciesOptions;
-	
-//	$speciesOpts = $this->species;
-
-	// sex
-	$sexOpts = array();
-	$sexOpts[] = JHtml::_('select.option', 'A', JText::_('JALL'));
-	$sexOpts[] = JHtml::_('select.option', 'M', JText::_('COM_PETPOINT_SEX_OPT_MALE'));
-	$sexOpts[] = JHtml::_('select.option', 'F', JText::_('COM_PETPOINT_SEX_OPT_FEMALE'));
-	
-	// age group
-	$agegroupOpts = array();
-	$agegroupOpts[] = JHTML::_('select.option', 'All', JText::_('JALL'));
-	$agegroupOpts[] = JHTML::_('select.option', 'UnderYear', JText::_('COM_PETPOINT_AGEGROUP_OPT_UNDER_1_YEAR'));
-	$agegroupOpts[] = JHTML::_('select.option', 'OverYear', JText::_('COM_PETPOINT_AGEGROUP_OPT_OVER_1_YEAR'));
-	
-	// on hold
-	$onholdOpts = array();
-	$onholdOpts[] = JHTML::_('select.option', 'A', JText::_('JALL'));
-	$onholdOpts[] = JHTML::_('select.option', 'Y', JText::_('COM_PETPOINT_ONHOLD_OPT_ON_HOLD'));
-	$onholdOpts[] = JHTML::_('select.option', 'N', JText::_('COM_PETPOINT_ONHOLD_OPT_NOT_ON_HOLD'));
-	
-	// sort order
-	$orderbyOpts = array();
-	$orderbyOpts[] = JHTML::_('select.option', 'ID', JText::_('COM_PETPOINT_ORDERBY_OPT_ID'));
-	$orderbyOpts[] = JHTML::_('select.option', 'Name', JText::_('COM_PETPOINT_ORDERBY_OPT_NAME'));
-	$orderbyOpts[] = JHTML::_('select.option', 'Breed', JText::_('COM_PETPOINT_ORDERBY_OPT_BREED'));
-	$orderbyOpts[] = JHTML::_('select.option', 'Sex', JText::_('COM_PETPOINT_ORDERBY_OPT_SEX'));
-	$orderbyOpts[] = JHTML::_('select.option', 'Random', JText::_('COM_PETPOINT_ORDERBY_OPT_RANDOM'));
-	
-	// build initial query string
-	$queryParms = array();
-	foreach (array('species', 'sex', 'agegroup', 'location', 'site', 'onhold', 'orderby', 'authkey', 'css', 'detailsinpopup', 'colnum') as $key):
-		$queryParms[$key] = $params->get($key);
-	endforeach;
-	?>
+	if ($params->get('pretext')): 
+?>
+<div class="container"><?php echo $params->get('pretext');?></div>
+	<?php endif; ?>
 <form action="#" method="get" id="form-petpoint" class="form-inline">
 	<div class="controls">
 		<?php if ($params->get('showspecies')): ?>
 			<div class="form-group">
 				<label for="form-petpoint-species"><?php echo JText::_('COM_PETPOINT_SPECIES_LABEL'); ?></label>
-				<?php echo JHtml::_('select.genericlist', $speciesOpts, 'form-petpoint-species', 'class="form-control"', 'value', 'text', $params->get('species')); ?>
+				<?php echo JHtml::_('select.genericlist', $this->speciesOptions, 'form-petpoint-species', 'class="form-control"', 'value', 'text', $params->get('species')); ?>
 			</div> <!-- form-group -->
 		<?php endif;?>
 		<?php if ($params->get('showsex')): ?>
 			<div class="form-group">
 				<label for="form-petpoint-sex"><?php echo JText::_('COM_PETPOINT_SEX_LABEL'); ?></label>
-				<?php echo JHtml::_('select.genericlist', $sexOpts, 'form-petpoint-sex', 'class="form-control"', 'value', 'text', $params->get('sex')); ?>
+				<?php echo JHtml::_('select.genericlist', $this->sexOptions, 'form-petpoint-sex', 'class="form-control"', 'value', 'text', $params->get('sex')); ?>
 			</div> <!-- form-group -->
 		<?php endif; ?>
 		<?php if ($params->get('showagegroup')): ?>
 			<div class="form-group">
 				<label for="form-petpoint-agegroup"><?php echo JText::_('COM_PETPOINT_AGEGROUP_LABEL'); ?></label>
-				<?php echo JHtml::_('select.genericlist', $agegroupOpts, 'form-petpoint-agegroup', 'class="form-control"', 'value', 'text', $params->get('agegroup')); ?>
+				<?php echo JHtml::_('select.genericlist', $this->ageGroupOptions, 'form-petpoint-agegroup', 'class="form-control"', 'value', 'text', $params->get('agegroup')); ?>
 			</div> <!-- form-group -->
 		<?php endif; ?>
 		<?php if ($params->get('showlocation')): ?>
@@ -104,13 +55,13 @@ else:
 		<?php if ($params->get('showonhold')): ?>
 			<div class="form-group">
 				<label for="form-petpoint-onhold"><?php echo JText::_('COM_PETPOINT_ONHOLD_LABEL'); ?></label>
-				<?php echo JHtml::_('select.genericlist', $onholdOpts, 'form-petpoint-onhold', 'class="form-control"', 'value', 'text', $params->get('onhold')); ?>
+				<?php echo JHtml::_('select.genericlist', $this->onHoldOptions, 'form-petpoint-onhold', 'class="form-control"', 'value', 'text', $params->get('onhold')); ?>
 			</div> <!-- form-group -->
 		<?php endif; ?>
 		<?php if ($params->get('showorderby')): ?>
 			<div class="form-group">
 				<label for="form-petpoint-orderby"><?php echo JText::_('COM_PETPOINT_ORDERBY_LABEL'); ?></label>
-				<?php echo JHtml::_('select.genericlist', $orderbyOpts, 'form-petpoint-orderby', 'class="form-control"', 'value', 'text', $params->get('orderby')); ?>
+				<?php echo JHtml::_('select.genericlist', $this->orderByOptions, 'form-petpoint-orderby', 'class="form-control"', 'value', 'text', $params->get('orderby')); ?>
 			</div> <!-- form-group -->
 		<?php endif; ?>
 	</div> <!-- controls -->
@@ -120,21 +71,17 @@ else:
 		</div> <!-- controls -->
 	</div> <!-- control-group -->
 </form>
-<iframe id="petpoint-search" width="<?php echo $params->get('ppwidth'); ?>" height="<?php echo $params->get('ppheight'); ?>" src="<?php echo $params->get('url') . '?' . http_build_query($queryParms); ?>"></iframe>
-<?php endif; ?>
+<?php /* src will be set at run time in client */ ?>
+<iframe id="petpoint-search" width="<?php echo $params->get('ppwidth'); ?>" height="<?php echo $params->get('ppheight'); ?>"></iframe>
+<?php if ($params->get('posttext')): ?>
+<div class="container"><?php echo $params->get('posttext');?></div>
+<?php 
+	endif; 
+endif; 
+?>
 <script>
 jQuery(function($) {
-	$( document ).ready(function() {      
-	    var isMobile = window.matchMedia("only screen and (max-width: 760px)");
-
-	    if (isMobile.matches) {
-	        //Conditional script here for mobile devices
-	    }
-	 });
-	$('#submit').click(function(ev){ 
-		// suppress default action
-		ev.preventDefault();
-
+	function setUrl() {
 		// collect query string
 		var parms = {
 				species: $('#form-petpoint-species').val(),
@@ -148,10 +95,28 @@ jQuery(function($) {
 				authkey: "<?php echo $params->get('authkey'); ?>",
 				detailsinpopup: "<?php echo $params->get('detailsinpopup'); ?>"
 		};
+
+		// adjust number of columns if device is mobile and config is higher
+	    var isMobile = window.matchMedia("only screen and (max-width: 760px)");
+
+		if (isMobile.matches && parms.colnum > 2) {
+			parms.colnum = 2;
+		}
+	
 		var queryString = $.param(parms);
 
 		var url = "<?php echo $params->get('url'); ?>" + '?' + queryString;
 		$('#petpoint-search').attr('src', url);
+	}
+	
+	$( document ).ready(function() {      
+	    setUrl();
+	 });
+
+	$('#submit').click(function(ev){ 
+		// suppress default action
+		ev.preventDefault();
+		setUrl();
 	});
 });
 </script>

@@ -26,6 +26,10 @@ class PetPointViewSearch extends JViewLegacy {
 	function display($tpl = null) {
 		// Assign data to the view
 		$this->speciesOptions = $this->get('SpeciesOptions');
+		$this->sexOptions = $this->get('SexOptions');
+		$this->ageGroupOptions = $this->get('AgeGroupOptions');
+		$this->onHoldOptions = $this->get('OnHoldOptions');
+		$this->orderByOptions = $this->get('OrderByOptions');
 		
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))):
