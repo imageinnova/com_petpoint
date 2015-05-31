@@ -38,6 +38,9 @@ class PetPointViewPetPoint extends JViewLegacy {
 		$this->filterForm = $this->get ('FilterForm');
 		$this->activeFilters = $this->get ('ActiveFilters');
 		
+		// get user actions
+		$this->canDo = PetPointHelper::getActions();
+		
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))):
 			JError::raiseError('500', implode('\n', $errors));
@@ -58,10 +61,22 @@ class PetPointViewPetPoint extends JViewLegacy {
 			$title .= "<span style='font-size: 0.5em; vertical-align: middle;'>(" . $this->pagination->total . ")</span>";
 		endif;
 		JToolbarHelper::title($title, 'petpoint');
-		JToolBarHelper::addNew ('species.add');
-		JToolBarHelper::editList ('species.edit');
-		JToolBarHelper::deleteList('', 'petpoint.delete');
-		JToolBarHelper::preferences('com_petpoint');
+		
+		if ($this->canDo->get('core.create')) {
+			JToolBarHelper::addNew ('species.add');
+		}
+		
+		if ($this->canDo->get('core.edit')) {
+			JToolBarHelper::editList ('species.edit');
+		}
+		
+		if ($this->canDo->get('core.delete')) {
+			JToolBarHelper::deleteList('', 'petpoint.delete');
+		}
+		
+		if (JFactory::getUser()->authorise('core.admin', 'com_petpoint')):
+			JToolBarHelper::preferences('com_petpoint');
+		endif;
 	}
 	
 	// set up document properties
