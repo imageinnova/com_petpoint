@@ -43,8 +43,8 @@
 			<option value="Yes">JYES</option>
 			<option value="No">JNO</option>
 		</field>
-		<field name="pretext" type="editor" label="COM_PETPOINT_PRETEXT_LABEL"></field>
-		<field name="posttext" type="editor" label="COM_PETPOINT_POSTTEXT_LABEL"></field>
+		<field name="pretext" type="editor" filter="safehtml" rows="5" label="COM_PETPOINT_PRETEXT_LABEL"></field>
+		<field name="posttext" type="editor" filter="safehtml" rows="5" label="COM_PETPOINT_POSTTEXT_LABEL"></field>
 	</fieldset>
 	<fieldset name="permissions" description="JCONFIG_PERMISSIONS_DESC"
 		label="JCONFIG_PERMISSIONS_LABEL">

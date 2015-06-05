@@ -18,7 +18,7 @@ if (!$params):
 else:
 	if ($params->get('pretext')): 
 ?>
-<div class="container"><?php echo $params->get('pretext');?></div>
+<div class="pretext"><?php echo $params->get('pretext');?></div>
 	<?php endif; ?>
 <form action="#" method="get" id="form-petpoint" class="form-inline">
 	<div class="controls">
@@ -74,7 +74,7 @@ else:
 <?php /* src will be set at run time in client */ ?>
 <iframe id="petpoint-search" width="<?php echo $params->get('ppwidth'); ?>" height="<?php echo $params->get('ppheight'); ?>"></iframe>
 <?php if ($params->get('posttext')): ?>
-<div class="container"><?php echo $params->get('posttext');?></div>
+<div class="posttext"><?php echo $params->get('posttext');?></div>
 <?php 
 	endif; 
 endif; 
@@ -93,7 +93,8 @@ jQuery(function($) {
 				orderby: $('#form-petpoint-orderby').val(),
 				colnum: "<?php echo $params->get('colnum'); ?>",
 				authkey: "<?php echo $params->get('authkey'); ?>",
-				detailsinpopup: "<?php echo $params->get('detailsinpopup'); ?>"
+				detailsinpopup: "<?php echo $params->get('detailsinpopup'); ?>",
+				css: "<?php echo $params->get('css'); ?>"
 		};
 
 		// adjust number of columns if device is mobile and config is higher
