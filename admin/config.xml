@@ -59,7 +59,7 @@
 			required="true" default="500"></field>
 		<field name="url" type="text" label="COM_PETPOINT_URL_LABEL"
 			readonly="true"
-			default="http://www.petango.com/webservices/adoptablesearch/wsAdoptableAnimals.aspx"></field>
+			default="http://ws.petango.com/webservices/adoptablesearch/wsAdoptableAnimals.aspx"></field>
 		<field name="authkey" type="text" label="COM_PETPOINT_AUTHKEY_LABEL"></field>
 		<field name="showspecies" type="radio" label="COM_PETPOINT_SHOW_SPECIES_LABEL"
 			default="1" class="btn-group btn-group-yesno">

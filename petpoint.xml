@@ -8,7 +8,7 @@
 	<authorUrl>http://www.imageinnova.com</authorUrl>
 	<copyright>Copyright 2015</copyright>
 	<!-- The version string is recorded in the components table -->
-	<version>1.0</version>
+	<version>1.0.1</version>
 	<!-- The description is optional and defaults to the name -->
 	<description>COM_PETPOINT_DESCRIPTION</description>
 	<install>
